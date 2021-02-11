@@ -7,5 +7,5 @@ We are {7he B0tS}. We do programming on C++. This is our project with strings.
 * Йоан Гаврилов (QA TESTER) - YAGavrilov19@codingburgas.bg
 * Велимир Димитров (FRONT-END) - VVDimitrov19@codingburgas.bg
 
-##Стъпки за инсталиране на кода: git clone https://github.com/YLStoyanov19/the-bots-string
+## Стъпки за инсталиране на кода: git clone https://github.com/YLStoyanov19/the-bots-string
 
