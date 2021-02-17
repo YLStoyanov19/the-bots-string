@@ -6,6 +6,7 @@
 #include "AppMenu.h"
 #include "GetNumbers.h"
 #include "GetMonth.h"
+#include "Quiz.h"
 
 using namespace std;
 
@@ -453,6 +454,93 @@ void hangMenu()
 }
 // THE END OF HANGMAN
 
+// The beginning of the string quiz
+void easyQuiz()
+{
+	string sth;
+
+	cout << "What is the string method that we use, when we want to delete something? " << endl;
+	cout << "Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "erase" || sth == ".erase")
+	{
+		cout << "Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "Your answer is incorrect! The right answer is ""erase""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "What method do we use when we want to insert sth in the string? " << endl;
+	cout << "Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "insert" || sth == ".insert")
+	{
+		cout << "Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "Your answer is incorrect! The right answer is ""erase""." << endl;
+	}
+
+	system("cls");
+
+	cout << "Your points are " << c << " out of 5!" << endl;
+}
+
+void hardQuiz()
+{
+
+}
+
+void menuQuiz()
+{
+menu:
+
+	cout << "(1) Easy mode" << endl;
+	cout << "(2) Hard mode" << endl;
+	cout << "(3) Guide" << endl;
+
+	string quizChoice;
+	cout << "\n Enter your choice --> ";  getline(cin, quizChoice);
+
+	system("cls");
+
+	if (stoi(quizChoice) == 1)
+	{
+		easyQuiz();
+	}
+	else if (stoi(quizChoice) == 2)
+	{
+		if (c > 3)
+		{
+
+		}
+		else {
+			cout << "You have to have at least 4 points to continue to this quiz!" << endl;
+			Sleep(2000);
+			goto menu;
+		}
+	}
+	else if (stoi(quizChoice) == 3)
+	{
+		system("cls");
+
+		cout << "You won't be able to continue to the second quiz if you don't have at least 4 point of 5 on the first one!" << endl;
+
+		Sleep(5000);
+		system("cls");
+
+		goto menu;
+	}
+}
+// The end of the string quiz
+
 void chooseMode()
 {
 	cout << "  (1) >> Quiz about strings ^_^ :" << endl;
@@ -461,7 +549,7 @@ void chooseMode()
 	cout << "  (4) >> UserGuide <>           |" << endl;
 	cout << "---------------------------------" << endl;
 
-	getline(cin, choiceMode);
+	cout << "\n Enter your choice --> "; getline(cin, choiceMode);
 
 	system("cls");
 
@@ -492,6 +580,7 @@ void appMenu()
 
 	if (modeChoosed == 1)
 	{
+		menuQuiz();
 	}
 	else if (modeChoosed == 2)
 	{
