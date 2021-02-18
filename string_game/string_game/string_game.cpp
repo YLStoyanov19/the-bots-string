@@ -332,7 +332,7 @@ void hangStructure(int counter)
 
 void hangPlay(int start_point, int end_point)
 {
-	string hangmanWords[] = { "apple", "firefighter", "policeman", "chess", "hangman", "worldwide", "diller" };
+	string hangmanWords[] = { "apple", "firefighter", "policeman", "chess", "hangman", "worldwide", "dealer" };
 
 	string random_word = randomWordPicker(hangmanWords); // random word from the string
 	string hold_word = random_word;  // holds the word and makes it into "_"
@@ -457,18 +457,19 @@ void hangMenu()
 // The beginning of the string quiz
 void easyQuiz()
 {
+	again:
 	string sth;
 
 	cout << "What is the string method that we use, when we want to delete something? " << endl;
-	cout << "Enter your answer here: ";  getline(cin, sth);
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
 
 	if (sth == "erase" || sth == ".erase")
 	{
-		cout << "Your answer is correct!" << endl;
+		cout << "\n   Your answer is correct!" << endl;
 		c++;
 	}
 	else {
-		cout << "Your answer is incorrect! The right answer is ""erase""." << endl;
+		cout << "\n   Your answer is incorrect! The right answer is ""erase""." << endl;
 	}
 
 	sth = "";
@@ -477,20 +478,101 @@ void easyQuiz()
 	system("cls");
 
 	cout << "What method do we use when we want to insert sth in the string? " << endl;
-	cout << "Enter your answer here: ";  getline(cin, sth);
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
 
 	if (sth == "insert" || sth == ".insert")
 	{
-		cout << "Your answer is correct!" << endl;
+		cout << "\n   Your answer is correct!" << endl;
 		c++;
 	}
 	else {
-		cout << "Your answer is incorrect! The right answer is ""erase""." << endl;
+		cout << "\n   Your answer is incorrect! The right answer is ""insert""." << endl;
 	}
 
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "How many bits is short int?" << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "2")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""2""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "How many bits is char" << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "1")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""1""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "How many bits is unsigned long long int" << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "8")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""8""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
 	system("cls");
 
 	cout << "Your points are " << c << " out of 5!" << endl;
+
+	total_easy = c;
+	c = 0;
+
+	Sleep(3250);
+	system("cls");
+
+	cout << "Play again (1)" << endl;
+	cout << "Go back to quiz menu (2)" << endl;
+	cout << "Exit (3)" << endl;
+
+	string sth1;
+	cout << "\n Enter your choice --> "; getline(cin, sth1);
+	system("cls");
+
+	if (stoi(sth1) == 1)
+	{
+		goto again;
+	}
+	else if (stoi(sth1) == 2)
+	{
+		menuQuiz();
+	}
+	else if (stoi(sth1) == 3)
+	{
+		endGame();
+	}
 }
 
 void hardQuiz()
@@ -517,13 +599,14 @@ menu:
 	}
 	else if (stoi(quizChoice) == 2)
 	{
-		if (c > 3)
+		if (total_easy > 3)
 		{
-
+			hardQuiz();
 		}
 		else {
 			cout << "You have to have at least 4 points to continue to this quiz!" << endl;
 			Sleep(2000);
+			system("cls");
 			goto menu;
 		}
 	}
@@ -538,6 +621,8 @@ menu:
 
 		goto menu;
 	}
+
+	quizChoice = "";
 }
 // The end of the string quiz
 
