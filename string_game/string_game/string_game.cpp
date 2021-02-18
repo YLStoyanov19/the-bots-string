@@ -577,7 +577,121 @@ void easyQuiz()
 
 void hardQuiz()
 {
+again1:
+	string sth;
 
+	cout << "int a = 19, b = 18; \ncout << (a|b); \nWhat will be the outup of the code?" << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "19")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""19""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "What will be the decimal number of 11010101? " << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "213")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""213""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "What will be the binary number of 222(hex)?" << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "10 0010 0010")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""10 0010 0010""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "int a = 12, b = 25; \ncout << (a&b) \nWhat will be the outup of the code?;" << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "8")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""8""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "int a = 12, b = 25; \ncout << (a^b); \nWhat will be the outup of the code?" << endl;
+	cout << "\n Enter your answer here: ";  getline(cin, sth);
+
+	if (sth == "21")
+	{
+		cout << "\n   Your answer is correct!" << endl;
+		c++;
+	}
+	else {
+		cout << "\n   Your answer is incorrect! The right answer is ""21""." << endl;
+	}
+
+	sth = "";
+
+	Sleep(2000);
+	system("cls");
+
+	cout << "Your points are " << c << " out of 5!" << endl;
+
+	c = 0;
+
+	Sleep(3250);
+	system("cls");
+
+	cout << "Play again (1)" << endl;
+	cout << "Go back to quiz menu (2)" << endl;
+	cout << "Exit (3)" << endl;
+
+	string sth1;
+	cout << "\n Enter your choice --> "; getline(cin, sth1);
+	system("cls");
+
+	if (stoi(sth1) == 1)
+	{
+		goto again1;
+	}
+	else if (stoi(sth1) == 2)
+	{
+		menuQuiz();
+	}
+	else if (stoi(sth1) == 3)
+	{
+		endGame();
+	}
 }
 
 void menuQuiz()
