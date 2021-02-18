@@ -34,145 +34,160 @@ void getMonth()
 //Basic check that the clock does
 void clockCheck()
 {
-	if (sec > 59)
-	{
-		sec = 0;
-		mins++;
-	}
-	if (mins > 59)
-	{
-		mins = 0;
-		hours++;
-	}
-	if (hours > 23)
-	{
-		hours = 0;
-		days++;
-	}
-	if (month == "January")
-	{
-		if (days == 32)
+clock_again:
+		if (sec > 59)
 		{
-			days = 1;
-			month = "February";
+			sec = 0;
+			mins++;
 		}
-	}
-	if (month == "February")
-	{
-		if (years % 4 == 0)
+		if (mins > 59)
 		{
-			if (days == 30)
+			mins = 0;
+			hours++;
+		}
+		if (hours > 23)
+		{
+			hours = 0;
+			days++;
+		}
+		if (month == "January")
+		{
+			if (days == 32)
 			{
-				month = "March";
 				days = 1;
+				month = "February";
 			}
 		}
-		else
+		if (month == "February")
 		{
-			if (days == 29)
+			if (years % 4 == 0)
 			{
-				month = "March";
-				days = 1;
+				if (days == 30)
+				{
+					month = "March";
+					days = 1;
+				}
+			}
+			else
+			{
+				if (days == 29)
+				{
+					month = "March";
+					days = 1;
+				}
 			}
 		}
-	}
-	if (month == "March")
-	{
-		if (days == 32)
+		if (month == "March")
 		{
-			days = 1;
-			month = "April";
+			if (days == 32)
+			{
+				days = 1;
+				month = "April";
+			}
 		}
-	}
-	if (month == "April")
-	{
-		if (days == 31)
+		if (month == "April")
 		{
-			days = 1;
-			month = "May";
+			if (days == 31)
+			{
+				days = 1;
+				month = "May";
+			}
 		}
-	}
-	if (month == "May")
-	{
-		if (days == 32)
+		if (month == "May")
 		{
-			days = 1;
-			month = "June";
+			if (days == 32)
+			{
+				days = 1;
+				month = "June";
+			}
 		}
-	}
-	if (month == "June")
-	{
-		if (days == 31)
+		if (month == "June")
 		{
-			days = 1;
-			month = "July";
+			if (days == 31)
+			{
+				days = 1;
+				month = "July";
+			}
 		}
-	}
-	if (month == "July")
-	{
-		if (days == 32)
+		if (month == "July")
 		{
-			days = 1;
-			month = "August";
+			if (days == 32)
+			{
+				days = 1;
+				month = "August";
+			}
 		}
-	}
-	if (month == "August")
-	{
-		if (days == 32)
+		if (month == "August")
 		{
-			days = 1;
-			month = "September";
+			if (days == 32)
+			{
+				days = 1;
+				month = "September";
+			}
 		}
-	}
-	if (month == "September")
-	{
-		if (days == 31)
+		if (month == "September")
 		{
-			days = 1;
-			month = "October";
+			if (days == 31)
+			{
+				days = 1;
+				month = "October";
+			}
 		}
-	}
-	if (month == "October")
-	{
-		if (days == 32)
+		if (month == "October")
 		{
-			days = 1;
-			month = "November";
+			if (days == 32)
+			{
+				days = 1;
+				month = "November";
+			}
 		}
-	}
-	if (month == "November")
-	{
-		if (days == 31)
+		if (month == "November")
 		{
-			days = 1;
-			month = "December";
+			if (days == 31)
+			{
+				days = 1;
+				month = "December";
+			}
 		}
-	}
-	if (month == "December" && days == 32)
-	{
-		years++;
-		days = 1;
-		month = "January";
-	}
+		if (month == "December" && days == 32)
+		{
+			years++;
+			days = 1;
+			month = "January";
+		}
 } // clockCheck
+
 
 void clockPlay()
 {
+clock_again:
+
 	getMonth();
+	if (month == "January" || month == "February" || month == "March" || month == "April" || month == "May" || month == "June" || month == "July"
+		|| month == "August" || month == "September" || month == "October" || month == "November" || month == "December")
+	{
 	system("cls");
 	getNumbers();
+		while (1)
+		{
+			system("cls");
+			cout << hours << ":" << mins << ":" << sec << endl;
+			cout << days << " ";
+			cout << month << " ";
+			cout << years;
+			Sleep(1000);
+			sec++;
 
-	while (1)
-	{
+			clockCheck();
+		}
+	}
+	else {
+		cout << "Please, type correctly!" << endl;
+
+		system("pause");
 		system("cls");
-		cout << hours << ":" << mins << ":" << sec << endl;
-		cout << days << " ";
-		cout << month << " ";
-		cout << years;
-		Sleep(1000);
-		sec++;
 
-		clockCheck();
+		goto clock_again;
 	}
 } // clockPlay
 // The end of the clock functions
@@ -428,6 +443,7 @@ bottom:
 
 void hangMenu()
 {
+	again2:
 	cout << "(1) Hard mode (No joker)" << endl;
 	cout << "(2) Medium mode (One jokers)" << endl;
 	cout << "(3) Easy mode (Two jokers)" << endl;
@@ -439,17 +455,26 @@ void hangMenu()
 
 	system("cls");
 
-	if (stoi(menuChoice) == 1)
+	if (menuChoice == "1")
 	{
 		hangPlay(0, 0);
 	}
-	else if (stoi(menuChoice) == 2)
+	else if (menuChoice == "2")
 	{
 		hangPlay(0, 1);
 	}
-	else if (stoi(menuChoice) == 3)
+	else if (menuChoice == "3")
 	{
 		hangPlay(1, 1);
+	}
+	else if (menuChoice != "1" && menuChoice != "2" && menuChoice != "3")
+	{
+		cout << "Invalid try!" << endl;
+
+		Sleep(2000);
+		system("cls");
+
+		goto again2;
 	}
 }
 // THE END OF HANGMAN
@@ -457,7 +482,7 @@ void hangMenu()
 // The beginning of the string quiz
 void easyQuiz()
 {
-	again:
+again:
 	string sth;
 
 	cout << "What is the string method that we use, when we want to delete something? " << endl;
@@ -550,7 +575,7 @@ void easyQuiz()
 	total_easy = c;
 	c = 0;
 
-	Sleep(3250);
+	system("pause");
 	system("cls");
 
 	cout << "Play again (1)" << endl;
@@ -707,11 +732,11 @@ menu:
 
 	system("cls");
 
-	if (stoi(quizChoice) == 1)
+	if (quizChoice == "1")
 	{
 		easyQuiz();
 	}
-	else if (stoi(quizChoice) == 2)
+	else if (quizChoice == "2")
 	{
 		if (total_easy > 3)
 		{
@@ -724,13 +749,23 @@ menu:
 			goto menu;
 		}
 	}
-	else if (stoi(quizChoice) == 3)
+	else if (quizChoice == "3")
 	{
 		system("cls");
 
 		cout << "You won't be able to continue to the second quiz if you don't have at least 4 point of 5 on the first one!" << endl;
 
 		Sleep(5000);
+		system("cls");
+
+		goto menu;
+	}
+	else if (quizChoice != "1" && quizChoice != "2" && quizChoice != "3")
+	{
+		quizChoice = "";
+		cout << "Invalid try!" << endl;
+
+		system("pause");
 		system("cls");
 
 		goto menu;
@@ -756,7 +791,7 @@ void chooseMode()
 
 void userGuide()
 {
-	cout << "You have 4 modes, just choose one of them and start playing!" << endl;
+	cout << "You have 3 modes, just choose one of them and start playing!" << endl;
 	cout << "We will add new mode soon! \n \n";
 
 	string go_back;
@@ -773,28 +808,37 @@ void userGuide()
 
 void appMenu()
 {
+	appmenu:
 	chooseMode();
+	
 
-	int modeChoosed = stoi(choiceMode);
-
-	if (modeChoosed == 1)
+	if (choiceMode == "1")
 	{
 		menuQuiz();
 	}
-	else if (modeChoosed == 2)
+	else if (choiceMode == "2")
 	{
 		clockPlay();
 	}
-	else if (modeChoosed == 3)
+	else if (choiceMode == "3")
 	{
 		hangMenu();
 	}
-	else if (modeChoosed == 4)
+	else if (choiceMode == "4")
 	{
 		userGuide();
 	}
+	else if (choiceMode != "1" && choiceMode != "2" && choiceMode != "3" && choiceMode != "4")
+	{
+		choiceMode == "";
+		cout << "Invalid try!" << endl;
 
-} // appMenu
+		system("pause");
+		system("cls");
+
+		goto appmenu;
+	}
+} //appMenu
 
 int main()
 {

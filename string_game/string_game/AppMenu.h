@@ -2,6 +2,4 @@
 
 #include<iostream>
 
-int modeChoosed;
-
 void appMenu();
