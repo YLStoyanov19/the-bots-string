@@ -7,6 +7,7 @@
 #include "GetNumbers.h"
 #include "GetMonth.h"
 #include "Quiz.h"
+#include "HangPlay.h"
 
 using namespace std;
 
@@ -16,11 +17,26 @@ string str;
 // The beginning of the clock fucntions
 void getNumbers()
 {
+clock_again1:
 	cout << "Enter hours, minutes and seconds, every on a new line: ";
 	cin >> hours >> mins >> sec;
 
 	cout << endl << "Enter days and years, every ona  new line: ";
 	cin >> days >> years;
+
+	if ((hours >= 0 && hours <= 24) && (mins >= 0 && mins <= 60) && (sec >= 0 && sec <= 60) && (mins >= 0 && mins <= 60) && ((days <= 30 && days >= 1) ||
+		(days <= 31 && days >= 1)) && (years >= 0 && years <= 2021))
+	{
+
+	}
+	else {
+		cout << "Please, type correctly!" << endl;
+
+		system("pause");
+		system("cls");
+
+		goto clock_again1;
+	}
 } // getNumbers
 
 string month;
@@ -168,20 +184,23 @@ clock_again:
 	{
 	system("cls");
 	getNumbers();
-		while (1)
-		{
-			system("cls");
-			cout << hours << ":" << mins << ":" << sec << endl;
-			cout << days << " ";
-			cout << month << " ";
-			cout << years;
-			Sleep(1000);
-			sec++;
 
-			clockCheck();
-		}
+			while (1)
+			{
+				system("cls");
+				cout << hours << ":" << mins << ":" << sec << endl;
+				cout << days << " ";
+				cout << month << " ";
+				cout << years;
+				Sleep(1000);
+				sec++;
+
+				clockCheck();
+			}
 	}
 	else {
+		system("cls");
+
 		cout << "Please, type correctly!" << endl;
 
 		system("pause");
@@ -341,7 +360,42 @@ void hangStructure(int counter)
 		system("cls");
 
 		cout << "You are dead my frined!" << endl;
-		endGame();
+		
+		system("pause");
+		system("cls");
+
+	hang_again:
+		cout << "  Go to menu (1)" << endl;
+		cout << "  Exit game  (2)" << endl;
+
+		cout << "\n     Enter your choice: --> ";
+		
+		string go_back_1;
+		getline(cin, go_back_1);
+
+		if (go_back_1 == "1")
+		{
+			system("cls");
+			hangMenu();
+		}
+
+		if (go_back_1 == "2")
+		{
+			system("cls");
+			endGame();
+		}
+
+		if (go_back_1 != "1" && go_back_1 != "2")
+		{
+			system("cls");
+
+			cout << "Invalid try! " << endl;
+
+			system("pause");
+			system("cls");
+
+			goto hang_again;
+		}
 	}
 }
 
@@ -471,7 +525,7 @@ void hangMenu()
 	{
 		cout << "Invalid try!" << endl;
 
-		Sleep(2000);
+		system("pause");
 		system("cls");
 
 		goto again2;
@@ -808,7 +862,7 @@ void userGuide()
 
 void appMenu()
 {
-	appmenu:
+appmenu:
 	chooseMode();
 	
 

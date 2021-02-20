@@ -145,6 +145,7 @@
     <ClInclude Include="AppMenu.h" />
     <ClInclude Include="GetMonth.h" />
     <ClInclude Include="GetNumbers.h" />
+    <ClInclude Include="HangPlay.h" />
     <ClInclude Include="Quiz.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
