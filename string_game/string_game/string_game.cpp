@@ -15,6 +15,7 @@ string choiceMode;
 string str;
 
 // The beginning of the clock fucntions
+// Enter numbers
 void getNumbers()
 {
 clock_again1:
@@ -39,8 +40,10 @@ clock_again1:
 	}
 } // getNumbers
 
+//Sth
 string month;
 
+// Enter a month
 void getMonth()
 {
 	cout << "Enter a month: ";
@@ -213,12 +216,14 @@ clock_again:
 
 // THE BEGINNING OF HANGMAN
 
+//End the game
 int endGame()
 {
 	exit(0);
 	return 0;
 }
 
+//Choose a word for the Hangman
 string randomWordPicker(string word[])
 {
 	srand(time(NULL));
