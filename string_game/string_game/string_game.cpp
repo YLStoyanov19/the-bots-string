@@ -14,8 +14,13 @@ using namespace std;
 string choiceMode;
 string str;
 
+int endGame()
+{
+	exit(0);
+	return 0;
+}
+
 // The beginning of the clock fucntions
-// Enter numbers
 void getNumbers()
 {
 clock_again1:
@@ -40,10 +45,8 @@ clock_again1:
 	}
 } // getNumbers
 
-//Sth
 string month;
 
-// Enter a month
 void getMonth()
 {
 	cout << "Enter a month: ";
@@ -54,126 +57,126 @@ void getMonth()
 void clockCheck()
 {
 clock_again:
-		if (sec > 59)
+	if (sec > 59)
+	{
+		sec = 0;
+		mins++;
+	}
+	if (mins > 59)
+	{
+		mins = 0;
+		hours++;
+	}
+	if (hours > 23)
+	{
+		hours = 0;
+		days++;
+	}
+	if (month == "January")
+	{
+		if (days == 32)
 		{
-			sec = 0;
-			mins++;
-		}
-		if (mins > 59)
-		{
-			mins = 0;
-			hours++;
-		}
-		if (hours > 23)
-		{
-			hours = 0;
-			days++;
-		}
-		if (month == "January")
-		{
-			if (days == 32)
-			{
-				days = 1;
-				month = "February";
-			}
-		}
-		if (month == "February")
-		{
-			if (years % 4 == 0)
-			{
-				if (days == 30)
-				{
-					month = "March";
-					days = 1;
-				}
-			}
-			else
-			{
-				if (days == 29)
-				{
-					month = "March";
-					days = 1;
-				}
-			}
-		}
-		if (month == "March")
-		{
-			if (days == 32)
-			{
-				days = 1;
-				month = "April";
-			}
-		}
-		if (month == "April")
-		{
-			if (days == 31)
-			{
-				days = 1;
-				month = "May";
-			}
-		}
-		if (month == "May")
-		{
-			if (days == 32)
-			{
-				days = 1;
-				month = "June";
-			}
-		}
-		if (month == "June")
-		{
-			if (days == 31)
-			{
-				days = 1;
-				month = "July";
-			}
-		}
-		if (month == "July")
-		{
-			if (days == 32)
-			{
-				days = 1;
-				month = "August";
-			}
-		}
-		if (month == "August")
-		{
-			if (days == 32)
-			{
-				days = 1;
-				month = "September";
-			}
-		}
-		if (month == "September")
-		{
-			if (days == 31)
-			{
-				days = 1;
-				month = "October";
-			}
-		}
-		if (month == "October")
-		{
-			if (days == 32)
-			{
-				days = 1;
-				month = "November";
-			}
-		}
-		if (month == "November")
-		{
-			if (days == 31)
-			{
-				days = 1;
-				month = "December";
-			}
-		}
-		if (month == "December" && days == 32)
-		{
-			years++;
 			days = 1;
-			month = "January";
+			month = "February";
 		}
+	}
+	if (month == "February")
+	{
+		if (years % 4 == 0)
+		{
+			if (days == 30)
+			{
+				month = "March";
+				days = 1;
+			}
+		}
+		else
+		{
+			if (days == 29)
+			{
+				month = "March";
+				days = 1;
+			}
+		}
+	}
+	if (month == "March")
+	{
+		if (days == 32)
+		{
+			days = 1;
+			month = "April";
+		}
+	}
+	if (month == "April")
+	{
+		if (days == 31)
+		{
+			days = 1;
+			month = "May";
+		}
+	}
+	if (month == "May")
+	{
+		if (days == 32)
+		{
+			days = 1;
+			month = "June";
+		}
+	}
+	if (month == "June")
+	{
+		if (days == 31)
+		{
+			days = 1;
+			month = "July";
+		}
+	}
+	if (month == "July")
+	{
+		if (days == 32)
+		{
+			days = 1;
+			month = "August";
+		}
+	}
+	if (month == "August")
+	{
+		if (days == 32)
+		{
+			days = 1;
+			month = "September";
+		}
+	}
+	if (month == "September")
+	{
+		if (days == 31)
+		{
+			days = 1;
+			month = "October";
+		}
+	}
+	if (month == "October")
+	{
+		if (days == 32)
+		{
+			days = 1;
+			month = "November";
+		}
+	}
+	if (month == "November")
+	{
+		if (days == 31)
+		{
+			days = 1;
+			month = "December";
+		}
+	}
+	if (month == "December" && days == 32)
+	{
+		years++;
+		days = 1;
+		month = "January";
+	}
 } // clockCheck
 
 
@@ -185,21 +188,49 @@ clock_again:
 	if (month == "January" || month == "February" || month == "March" || month == "April" || month == "May" || month == "June" || month == "July"
 		|| month == "August" || month == "September" || month == "October" || month == "November" || month == "December")
 	{
-	system("cls");
-	getNumbers();
 
-			while (1)
-			{
-				system("cls");
-				cout << hours << ":" << mins << ":" << sec << endl;
-				cout << days << " ";
-				cout << month << " ";
-				cout << years;
-				Sleep(1000);
-				sec++;
+		cout << endl << endl;
+		getNumbers();
 
-				clockCheck();
-			}
+		while (1)
+		{
+			system("cls");
+			cout << "    \\ ( ) /	            _______                  ______        _______                       \\ ( ) /" << endl;
+			cout << "     \\ | /	          //       \\\\ ||           //      \\\\    //       \\\\  ||   //             \\ | /" << endl;
+			cout << "      \\|/		 ||           ||          ||        ||  ||            ||  //               \\|/" << endl;
+			cout << "       |	         ||           ||          ||        ||  ||            || //                 |" << endl;
+			cout << "       |	         ||           ||          ||        ||  ||            || \\\\                 |" << endl;
+			cout << "      / \\	         ||           ||          ||        ||  ||            ||  \\\\               / \\" << endl;
+			cout << "     /   \\	  	  \\\\_______// ||________   \\\\______//    \\\\_______//  ||   \\\\             /   \\" << endl;
+			cout << "    /     \\	                                                                                 /     \\" << endl;
+			cout << "   /       \\	                                                                                /       \\" << endl;
+			cout << "                " << hours << ":" << mins << ":" << sec << endl;
+			cout << "                " << days << " " << month << " " << years << endl;
+
+			Sleep(1000);
+			system("cls");
+
+			sec++;
+			clockCheck();
+
+			cout << "       ( )                  _______                  ______        _______                        ( )  " << endl;
+			cout << "        |  	          //       \\\\ ||           //      \\\\    //       \\\\  ||   //              | " << endl;
+			cout << "       /|\\		 ||           ||          ||        ||  ||            ||  //              /|\\" << endl;
+			cout << "      / | \\              ||           ||          ||        ||  ||            || //              / | \\" << endl;
+			cout << "     /  |  \\             ||           ||          ||        ||  ||            || \\\\             /  |  \\" << endl;
+			cout << "       / \\	         ||           ||          ||        ||  ||            ||  \\\\              / \\" << endl;
+			cout << "      /   \\	  	  \\\\_______// ||________   \\\\______//    \\\\_______//  ||   \\\\            /   \\" << endl;
+			cout << "     /     \\	                                                                                /     \\" << endl;
+			cout << "    /       \\	                                                                               /       \\" << endl;
+			cout << "                " << hours << ":" << mins << ":" << sec << endl;
+			cout << "                " << days << " " << month << " " << years << endl;
+
+			Sleep(1000);
+			system("cls");
+
+			sec++;
+			clockCheck();
+		}
 	}
 	else {
 		system("cls");
@@ -216,14 +247,6 @@ clock_again:
 
 // THE BEGINNING OF HANGMAN
 
-//End the game
-int endGame()
-{
-	exit(0);
-	return 0;
-}
-
-//Choose a word for the Hangman
 string randomWordPicker(string word[])
 {
 	srand(time(NULL));
@@ -365,7 +388,7 @@ void hangStructure(int counter)
 		system("cls");
 
 		cout << "You are dead my frined!" << endl;
-		
+
 		system("pause");
 		system("cls");
 
@@ -374,8 +397,8 @@ void hangStructure(int counter)
 		cout << "  Exit game  (2)" << endl;
 
 		cout << "\n     Enter your choice: --> ";
-		
-		string go_back_1;
+
+		string go_back_1; // Do it with char
 		getline(cin, go_back_1);
 
 		if (go_back_1 == "1")
@@ -384,17 +407,17 @@ void hangStructure(int counter)
 			hangMenu();
 		}
 
-		if (go_back_1 == "2")
+		else if (go_back_1 == "2")
 		{
 			system("cls");
 			endGame();
 		}
 
-		if (go_back_1 != "1" && go_back_1 != "2")
+		else if (go_back_1 != "1" && go_back_1 != "2")
 		{
 			system("cls");
 
-			cout << "Invalid try! " << endl;
+			cout << "Invalid try! 1111" << endl;
 
 			system("pause");
 			system("cls");
@@ -502,6 +525,8 @@ bottom:
 
 void hangMenu()
 {
+
+again2:
 	cout << "        //       //    /////////    ///     //      //////         ///      ///         /////////   ////      //\n";
 	cout << "       //       //    //     //    // //    //    ///             // //    /////       //     //   // //     //\n";
 	cout << "      //       //    //     //    //  //   //   //               //  //   //  //      //     //   //   //   //\n";
@@ -509,7 +534,6 @@ void hangMenu()
 	cout << "    //       //    //     //    //    // //   //         //    //    /////    //    //     //   //     // //\n";
 	cout << "   //       //    //     //    //     ////     ///      //    //              //   //     //   //      //// \n";
 	cout << "  //       //    //     //    //      ///         ////////   //              //   //     //   //       ////\n\n\n";
-	again2:
 	cout << "(1) Hard mode (No joker)" << endl;
 	cout << "(2) Medium mode (One jokers)" << endl;
 	cout << "(3) Easy mode (Two jokers)" << endl;
@@ -788,10 +812,18 @@ again1:
 void menuQuiz()
 {
 menu:
-
-	cout << "(1) Easy mode" << endl;
-	cout << "(2) Hard mode" << endl;
-	cout << "(3) Guide" << endl;
+	cout << "                     _______                                 ___________\n";
+	cout << "		   //       \\\\      ||         ||      ||               //\n";
+	cout << "		  ||         ||     ||         ||                     //  \n";
+	cout << "		  ||         ||     ||         ||      ||           //    \n";
+	cout << "		  ||         ||     ||         ||      ||         //      \n";
+	cout << "		  ||         ||     ||         ||      ||       //        \n";
+	cout << "		   \\\\_______//\\\\    ||         ||      ||     //          \n";
+	cout << "		               \\\\    \\\\_______//       ||   //____________\n\n";
+	cout << "\n";
+	cout << "				      (1) Easy mode" << endl;
+	cout << "				      (2) Hard mode" << endl;
+	cout << "				      (3) Guide" << endl;
 
 	string quizChoice;
 	cout << "\n Enter your choice --> ";  getline(cin, quizChoice);
@@ -876,7 +908,7 @@ void appMenu()
 {
 appmenu:
 	chooseMode();
-	
+
 
 	if (choiceMode == "1")
 	{
